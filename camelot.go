@@ -15,7 +15,11 @@ func main() {
 	gmo := GetMonth()
 	weekr := ""
 	if gmo[0] < 3 {
-		weekr += week[gmo[1]/8-gmo[1]/9-1]
+		wok := 9
+		if gmo[1]-gmo[1]/9 > 0 {
+			wok = gmo[1] - 9*(gmo[1]/9)
+		}
+		weekr += week[wok-1]
 	} else {
 		// fmt.Println(gmo[1] / 6)
 	}
